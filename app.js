@@ -2,6 +2,7 @@ const express = require("express");
 const hbs = require('hbs');
 const fs = require('fs');
 
+const PORT = process.env.PORT || 3000;
 var app = express();
 
 hbs.registerHelper('getCurrentYear', () => {
@@ -25,9 +26,9 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use((request, response, next) => {
-    response.render('maintenance.hbs');
-});
+// app.use((request, response, next) => {
+//     response.render('maintenance.hbs');
+// });
 
 app.get('/', (request, response) => {
     response.render('home.hbs', {
@@ -48,6 +49,6 @@ app.get('/bad', (request, response) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('App started on port 3000');
+app.listen(PORT, () => {
+    console.log(`App started on port ${PORT}`);
 });
