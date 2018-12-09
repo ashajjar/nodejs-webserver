@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+{{> header}}
+<h2>I have these projects:</h2>
+<ul>
+    {{#each projects as |project key|}}
+    <li><a href="{{project.url}}">{{project.title}}</a> : {{project.description}}</li>
+    {{/each}}
+</ul>
+{{> footer}}
+</body>
+</html>

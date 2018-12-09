@@ -49,6 +49,24 @@ app.get('/bad', (request, response) => {
     });
 });
 
+app.get('/projects', (request, response) => {
+    response.render('projects.hbs', {
+        projects: [
+            {
+                title: 'nodejs-webserver',
+                url: 'https://github.com/ashajjar/nodejs-webserver',
+                description: 'Creating NodeJS Webserver for NodeJS Udemy Course'
+            },
+            {
+                title: 'NodeJS Course',
+                url: 'https://github.com/ashajjar/nodejs-course',
+                description: 'NodeJS Course'
+            }
+        ],
+        title:'Projects'
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`App started on port ${PORT}`);
 });
